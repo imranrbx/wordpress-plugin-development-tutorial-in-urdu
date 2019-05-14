@@ -23,3 +23,25 @@ function pwspk_save_post($post_id){
 		update_post_meta($post_id, '_myselectbox', $_POST['_selectbox']);
 	}
 }
+add_action('the_post', 'pwspk_custom_the_post');
+
+
+function pwspk_custom_the_post($post){
+	$_mymetabox = get_post_meta($post->ID, '_mymetabox', true) ? get_post_meta($post->ID, '_mymetabox', true) : '';
+	?>
+		<style>
+			article#post-<?php echo $post->ID; ?>{
+				background-color: <?php echo $_mymetabox; ?>;
+				color: #fff;
+			}
+		</style>
+	<?php
+}
+
+
+
+
+
+
+
+
