@@ -5,3 +5,7 @@ article.post-news {
 .post-news h2{
 	color:red;
 }
+nav.next_previous {
+    display: flex;
+    justify-content: space-around;
+}
