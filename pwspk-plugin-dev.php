@@ -17,14 +17,25 @@ define('PLUGIN_URL', plugin_dir_url(__FILE__));
 include PLUGIN_PATH."inc/shortcodes.php";
 include PLUGIN_PATH."inc/metaboxes.php";
 include PLUGIN_PATH."inc/custom_post_types.php";
+include PLUGIN_PATH."inc/ajax.php";
 
 //add_filter('the_title', 'pwspk_the_title');
 function pwspk_the_title($title){
 	return "<strong>{$title}</strong>";
 }
 add_action('wp_enqueue_scripts', 'pwspk_wp_enqueue_scripts');
+add_action('admin_enqueue_scripts', 'pwspk_admin_enqueue_scripts');
 function pwspk_wp_enqueue_scripts(){
+	wp_enqueue_script('jquery');
 	wp_enqueue_style('pwspk_dev_plugin', PLUGIN_URL."assets/css/style.css");
+	wp_enqueue_script('pwspk_dev_script', PLUGIN_URL."assets/js/custom.js", array(), '1.0.0', false);
+	wp_localize_script('pwspk_dev_script', 'ajax_object', array(
+		'ajaxurl'=> admin_url('admin-ajax.php'), 
+		'num1'=>20
+		)
+	);
+}
+function pwspk_admin_enqueue_scripts(){
 	wp_enqueue_script('pwspk_dev_script', PLUGIN_URL."assets/js/custom.js", array(), '1.0.0', false);
 }
 add_action('admin_menu', 'pwspk_plugin_menu');
@@ -52,7 +63,7 @@ function pwspk_options_func(){ ?>
 	<div class="wrap">
 		<h1>PWSPK Options Menu</h1>
 		<?php settings_errors(); ?>
-		<form action="options.php" method="post">
+		<form id="ajax_form" action="options.php" method="post">
 			<?php settings_fields('pwspk_option_group'); ?>
 			<label for="">Setting One: <input type="text" name="pwspk_option_1" value="<?php echo esc_html(get_option('pwspk_option_1')); ?>" /></label>
 			<?php submit_button('Save Changes'); ?>
