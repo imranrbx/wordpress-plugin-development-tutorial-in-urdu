@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || die("Nice Try");
 add_action('init', 'pwspk_init');
 
 function pwspk_init(){

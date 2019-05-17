@@ -68,6 +68,7 @@ function pwspk_options_func(){ ?>
 			<label for="">Setting One: <input type="text" name="pwspk_option_1" value="<?php echo esc_html(get_option('pwspk_option_1')); ?>" /></label>
 			<?php submit_button('Save Changes'); ?>
 		</form>
+		<?php include PLUGIN_PATH."inc/api.php"; ?>
 	</div>
 <?php
 }

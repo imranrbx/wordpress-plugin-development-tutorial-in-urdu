@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || die("Nice Try");
 add_action('wp_ajax_my_ajax_action', 'pwspk_ajax_action');
 add_action('wp_ajax_my_front_ajax_action', 'pwspk_my_front_ajax_action');
 add_action('wp_ajax_nopriv_my_front_ajax_action', 'pwspk_my_front_ajax_action');

@@ -1,3 +1,4 @@
+<?php defined('ABSPATH') || die("Nice Try"); ?>
 <?php get_header(); ?>
 <article id="post-new-<?php echo get_the_ID(); ?>" class="post-news">
 <?php 

@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || die("Nice Try");
 add_action('admin_init', function(){
 	add_meta_box('_mycustommetabox', "My Custom MetaBox", 'pwspk_custom_metabox', ['post', 'page']);
 });

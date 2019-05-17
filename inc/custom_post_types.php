@@ -1,4 +1,5 @@
 <?php
+defined('ABSPATH') || die("Nice Try");
 add_action('init', 'pwspk_news_post');
 function pwspk_news_post(){
 	register_post_type('news', array(
