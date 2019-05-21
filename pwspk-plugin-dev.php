@@ -21,6 +21,7 @@ include PLUGIN_PATH."inc/metaboxes.php";
 include PLUGIN_PATH."inc/custom_post_types.php";
 include PLUGIN_PATH."inc/ajax.php";
 include PLUGIN_PATH."inc/db.php";
+include PLUGIN_PATH."inc/blocks.php";
 
 if(!class_exists('pwspk_plugin_dev')):
 
@@ -33,6 +34,7 @@ class pwspk_plugin_dev{
 	}
 	public static function wp_enqueue_scripts(){
 		wp_enqueue_script('jquery');
+
 		wp_enqueue_style('pwspk_dev_plugin', PLUGIN_URL."assets/css/style.css");
 		wp_enqueue_script('pwspk_dev_script', PLUGIN_URL."assets/js/custom.js", array(), '1.0.0', false);
 		wp_localize_script('pwspk_dev_script', 'ajax_object', array(
@@ -42,6 +44,7 @@ class pwspk_plugin_dev{
 		);
 	}
 	public static function admin_enqueue_scripts(){
+
 		wp_enqueue_script('pwspk_dev_script', PLUGIN_URL."assets/js/custom.js", array(), '1.0.0', false);
 	}
 
@@ -86,10 +89,6 @@ register_deactivation_hook(__FILE__, function(){
 	delete_option('pwspk_option_1');
 });
 endif;
-
-
-
-
 
 
 
