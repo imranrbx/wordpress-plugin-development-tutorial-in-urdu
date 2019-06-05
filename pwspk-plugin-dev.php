@@ -45,7 +45,7 @@ class pwspk_plugin_dev{
 	}
 	public static function admin_enqueue_scripts(){
 
-		wp_enqueue_script('pwspk_dev_script', PLUGIN_URL."assets/js/custom.js", array(), '1.0.0', false);
+		//wp_enqueue_script('pwspk_dev_script', PLUGIN_URL."assets/js/custom.js", array(), '1.0.0', false);
 	}
 
 	public function plugin_menu(){
